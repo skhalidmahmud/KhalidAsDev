@@ -1,26 +1,31 @@
-// Day/Night Mode Toggle Functionality
+// Check for saved user preference for dark/light mode
 const modeToggle = document.getElementById('modeToggle');
-const modeIcon = document.getElementById('modeIcon');
 
-// Check saved theme in localStorage and apply it
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark');
-    modeIcon.classList.remove('fa-sun');
-    modeIcon.classList.add('fa-moon');
-}
+// Function to switch between dark and light modes
+const toggleMode = () => {
+    // Toggle between light-mode and dark-mode classes on body
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
 
-// Toggle Day/Night Mode
-modeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    
-    // Update the mode icon
-    if (document.body.classList.contains('dark')) {
-        modeIcon.classList.remove('fa-sun');
-        modeIcon.classList.add('fa-moon');
+    // Save the user's preference in localStorage
+    if (document.body.classList.contains('dark-mode')) {
         localStorage.setItem('theme', 'dark');
     } else {
-        modeIcon.classList.remove('fa-moon');
-        modeIcon.classList.add('fa-sun');
         localStorage.setItem('theme', 'light');
     }
+};
+
+// Load the theme from localStorage when the page loads
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+    } else {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+    }
 });
+
+// Add event listener to the toggle button
+modeToggle.addEventListener('click', toggleMode);

@@ -1,31 +1,32 @@
-/* Global Styles */
-html, body {
+/* General Styles for Light and Dark Modes */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-}
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
 
-body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures body takes full height */
-    background-color: white; /* Default background color */
-    color: black; /* Default text color */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    min-height: 100vh; /* Ensures full page height */
 }
 
-/* Dark Mode Styles */
-body.dark {
-    background-color: #121212;
-    color: white;
+body.light-mode {
+    background-color: #fff;
+    color: #333;
 }
 
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Header Styles */
 header {
     background-color: #333;
     padding: 1em 0;
     text-align: center;
+    position: relative;
 }
 
 header nav ul {
@@ -50,85 +51,6 @@ header nav ul li a:hover {
     color: #00bfff;
 }
 
-/* Main Content */
-main {
-    flex-grow: 1; /* Ensures the content area takes up remaining space */
-    padding: 2rem;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 1em;
-    text-align: center;
-    width: 100%;
-}
-
-footer ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-footer ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
-footer ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-footer ul li a:hover {
-    color: #00bfff;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-}
-
-/* Day/Night Mode Toggle Button */
-#modeToggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* for home page */
-
-/* General Styles for Light and Dark Modes */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.light-mode {
-    background-color: #fff;
-    color: #333;
-}
-
-body.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
 /* Hero Section */
 #home {
     text-align: center;
@@ -139,11 +61,13 @@ body.dark-mode {
 #home h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: inherit;
 }
 
 #home p {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
+    color: inherit;
 }
 
 #home .btn {
@@ -168,11 +92,13 @@ body.dark-mode {
 #about h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: inherit;
 }
 
 #about p {
     font-size: 1rem;
     line-height: 1.6;
+    color: inherit;
 }
 
 /* Projects Section */
@@ -184,6 +110,7 @@ body.dark-mode {
 #projects h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    color: inherit;
 }
 
 .project-container {
@@ -203,11 +130,13 @@ body.dark-mode {
 .project h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: inherit;
 }
 
 .project p {
     font-size: 1rem;
     margin-bottom: 1rem;
+    color: inherit;
 }
 
 .project .btn {
@@ -232,6 +161,7 @@ body.dark-mode {
 #contact h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    color: inherit;
 }
 
 #contact form {
@@ -242,6 +172,7 @@ body.dark-mode {
 
 #contact form label {
     font-size: 1rem;
+    color: inherit;
 }
 
 #contact form input, 
@@ -266,6 +197,38 @@ body.dark-mode {
     background-color: #007bb5;
 }
 
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom if content is short */
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #00bfff;
+}
+
 /* Dark Mode Adjustments */
 body.dark-mode #home {
     background: #444;
@@ -279,8 +242,9 @@ body.dark-mode #contact {
 
 body.dark-mode #about h2,
 body.dark-mode #projects h2,
-body.dark-mode #contact h2 {
-    color: #00bfff;
+body.dark-mode #contact h2,
+body.dark-mode #home h1 {
+    color: #fff;
 }
 
 body.dark-mode .project {
@@ -314,7 +278,64 @@ body.dark-mode #contact form button:hover {
 /* Button Styling for Light/Dark Toggle */
 #modeToggle {
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 20px;
     cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project {
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+
+    #home h1 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #home h1 {
+        font-size: 1.8rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    #about h2,
+    #projects h2,
+    #contact h2 {
+        font-size: 1.5rem;
+    }
+
+    #about p,
+    .project p {
+        font-size: 0.9rem;
+    }
+
+    #contact form input,
+    #contact form textarea {
+        font-size: 0.9rem;
+    }
+
+    footer ul li {
+        display: block;
+        margin: 5px 0;
+    }
 }
