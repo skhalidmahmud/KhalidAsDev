@@ -1,13 +1,17 @@
-/* Default light theme styles */
-body {
-    font-family: Arial, sans-serif;
+/* Global Styles */
+html, body {
     margin: 0;
     padding: 0;
-    background-color: white;
-    color: black;
-    transition: background-color 0.3s, color 0.3s;
+    height: 100%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes full height */
+}
+
+/* Header */
 header {
     background-color: #333;
     padding: 1em 0;
@@ -36,146 +40,60 @@ header nav ul li a:hover {
     color: #00bfff;
 }
 
-/* Night mode styles */
-body.night-mode {
-    background-color: #121212;
-    color: white;
+/* Main Content */
+main {
+    flex-grow: 1; /* Ensures the content area takes up remaining space */
+    padding: 2rem;
 }
 
-header.night-mode {
-    background-color: #222;
-}
-
+/* Footer */
 footer {
     background-color: #333;
     color: white;
+    padding: 1em;
     text-align: center;
-    padding: 20px 0;
+    width: 100%;
 }
 
 footer ul {
     list-style: none;
     padding: 0;
+    margin-top: 10px;
 }
 
 footer ul li {
     display: inline;
-    margin: 0 10px;
+    margin-right: 15px;
 }
 
 footer ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
 footer ul li a:hover {
     color: #00bfff;
 }
 
-/* Button styling */
-button#modeToggle {
-    position: fixed;
-    top: 18px;  /* Adjusted to be 2px higher */
-    right: 20px; /* Moved to the top-right corner */
-    background: none;
-    border: none;
-    font-size: 2em; /* Scales better with screen size */
-    color: #fff;
-    cursor: pointer;
-    transition: color 0.3s;
-    z-index: 100;
-}
-
-button#modeToggle:hover {
-    color: #00bfff;
-}
-
-/* Day to night toggle */
-button#modeToggle i {
-    margin-right: 10px;
-}
-
-/* Responsive design for different screen sizes */
-
-/* Desktop */
-@media (min-width: 1024px) {
-    body {
-        font-size: 16px; /* Default for desktop */
-    }
-
-    header nav ul li a {
-        font-size: 1.2em;
-    }
-
-    footer ul li a {
-        font-size: 1em;
-    }
-
-    button#modeToggle {
-        font-size: 2em; /* Large button for desktops */
-    }
-}
-
-/* Laptop */
-@media (max-width: 1023px) and (min-width: 768px) {
-    body {
-        font-size: 15px; /* Slightly smaller font size for laptops */
-    }
-
-    header nav ul li a {
-        font-size: 1.1em;
-    }
-
-    footer ul li a {
-        font-size: 0.9em;
-    }
-
-    button#modeToggle {
-        font-size: 1.8em; /* Medium button for laptops */
-    }
-}
-
-/* Tablet */
-@media (max-width: 767px) and (min-width: 481px) {
-    body {
-        font-size: 14px; /* Even smaller font size for tablets */
-    }
-
+/* Responsive Design */
+@media (max-width: 768px) {
     header nav ul {
-        flex-direction: column; /* Stack nav links vertically on tablet */
-    }
-
-    header nav ul li {
-        margin: 10px 0; /* Space between links */
-    }
-
-    button#modeToggle {
-        font-size: 1.6em; /* Smaller button for tablets */
-        top: 10px; /* Adjust the button's position slightly */
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    body {
-        font-size: 13px; /* Font size for mobile */
-    }
-
-    header nav ul {
-        flex-direction: column; /* Stack nav links vertically on mobile */
+        flex-direction: column;
     }
 
     header nav ul li {
         margin: 10px 0;
     }
+}
 
-    footer ul li a {
-        font-size: 0.8em;
-    }
-
-    button#modeToggle {
-        font-size: 1.4em; /* Smaller button for mobile */
-        top: 10px; /* Adjust button position on mobile */
-    }
+/* Day/Night Mode Toggle Button */
+#modeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }

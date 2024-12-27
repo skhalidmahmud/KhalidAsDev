@@ -1,33 +1,26 @@
-// Check for stored theme preference
-document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('theme') === 'night') {
-        document.body.classList.add('night-mode');
-        document.querySelector('header').classList.add('night-mode');
-        document.querySelector('footer').classList.add('night-mode');
-        document.getElementById('modeIcon').classList.replace('fa-sun', 'fa-moon');
-    }
+// Day/Night Mode Toggle Functionality
+const modeToggle = document.getElementById('modeToggle');
+const modeIcon = document.getElementById('modeIcon');
 
-    const modeToggle = document.getElementById('modeToggle');
-    modeToggle.addEventListener('click', toggleMode);
-});
-
-function toggleMode() {
-    const isNight = document.body.classList.contains('night-mode');
-    
-    // Switch to day mode
-    if (isNight) {
-        document.body.classList.remove('night-mode');
-        document.querySelector('header').classList.remove('night-mode');
-        document.querySelector('footer').classList.remove('night-mode');
-        document.getElementById('modeIcon').classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'day');
-    } 
-    // Switch to night mode
-    else {
-        document.body.classList.add('night-mode');
-        document.querySelector('header').classList.add('night-mode');
-        document.querySelector('footer').classList.add('night-mode');
-        document.getElementById('modeIcon').classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'night');
-    }
+// Check saved theme in localStorage
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    modeIcon.classList.remove('fa-sun');
+    modeIcon.classList.add('fa-moon');
 }
+
+// Toggle Day/Night Mode
+modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    
+    // Update the mode icon
+    if (document.body.classList.contains('dark')) {
+        modeIcon.classList.remove('fa-sun');
+        modeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        modeIcon.classList.remove('fa-moon');
+        modeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'light');
+    }
+});
