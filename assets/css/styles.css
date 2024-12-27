@@ -4,7 +4,6 @@ html, body {
     padding: 0;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
     font-family: Arial, sans-serif;
 }
 
@@ -110,6 +109,25 @@ footer ul li a:hover {
 }
 
 /* for home page */
+
+/* General Styles for Light and Dark Modes */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
 
 /* Hero Section */
 #home {
@@ -246,4 +264,57 @@ footer ul li a:hover {
 
 #contact form button:hover {
     background-color: #007bb5;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode #home {
+    background: #444;
+}
+
+body.dark-mode #about,
+body.dark-mode #projects,
+body.dark-mode #contact {
+    background: #222;
+}
+
+body.dark-mode #about h2,
+body.dark-mode #projects h2,
+body.dark-mode #contact h2 {
+    color: #00bfff;
+}
+
+body.dark-mode .project {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode .project .btn {
+    background-color: #00bfff;
+}
+
+body.dark-mode .project .btn:hover {
+    background-color: #007bb5;
+}
+
+body.dark-mode #contact form input, 
+body.dark-mode #contact form textarea {
+    background-color: #444;
+    color: #fff;
+    border-color: #777;
+}
+
+body.dark-mode #contact form button {
+    background-color: #00bfff;
+}
+
+body.dark-mode #contact form button:hover {
+    background-color: #007bb5;
+}
+
+/* Button Styling for Light/Dark Toggle */
+#modeToggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
 }
