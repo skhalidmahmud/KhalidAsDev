@@ -3,14 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test HTML with Khalid</title>
+    <meta name="description" content="Personal portfolio of Khalid Mahmud, showcasing skills, projects, and achievements in IT and web development.">
+    <meta name="keywords" content="Khalid Mahmud, portfolio, web development, IT specialist, projects">
+    <meta name="author" content="Khalid Mahmud">
+    <title>Personal Portfolio - Khalid Mahmud</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Hello, Beginner!</h1>
-    <button id="myButton">Click Me!</button>
+    <button class="day-night-toggle" onclick="toggleDayNightMode()">Day/Night Mode</button>
 
-    <!-- Link to external JavaScript file -->
-    <script src="script.js"></script>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm Khalid Mahmud</h1>
+        <p>IT Specialist | Web Developer</p>
+        <button class="btn">View My Work</button>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm an IT specialist with a passion for web development. I have a BSc in Computer Science and Engineering from the European University of Bangladesh. I enjoy solving problems and creating intuitive designs.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-container">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Project description goes here.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Project description goes here.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Khalid Mahmud. All rights reserved.</p>
+        <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </footer>
 </body>
 </html>

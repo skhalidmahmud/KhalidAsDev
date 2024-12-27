@@ -1,23 +1,98 @@
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #040409;
+    background-color: #808080;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: #333;
+    padding: 1em 0;
     text-align: center;
-    margin-top: 50px;
 }
 
-h1 {
-    color: #999;
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
-button {
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #00bfff;
+}
+
+section {
+    padding: 2em;
+    text-align: center;
+}
+
+.hero {
+    padding: 50px;
+    background-color: #555;
+    transition: background-color 0.3s;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    animation: fadeIn 2s;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.btn {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: #00bfff;
+    color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.btn:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #222;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.day-night-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.day-night-toggle:hover {
+    background-color: #00bfff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
