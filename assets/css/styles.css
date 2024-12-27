@@ -80,7 +80,7 @@ button#modeToggle {
     right: 20px; /* Moved to the top-right corner */
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 2em; /* Scales better with screen size */
     color: #fff;
     cursor: pointer;
     transition: color 0.3s;
@@ -94,4 +94,88 @@ button#modeToggle:hover {
 /* Day to night toggle */
 button#modeToggle i {
     margin-right: 10px;
+}
+
+/* Responsive design for different screen sizes */
+
+/* Desktop */
+@media (min-width: 1024px) {
+    body {
+        font-size: 16px; /* Default for desktop */
+    }
+
+    header nav ul li a {
+        font-size: 1.2em;
+    }
+
+    footer ul li a {
+        font-size: 1em;
+    }
+
+    button#modeToggle {
+        font-size: 2em; /* Large button for desktops */
+    }
+}
+
+/* Laptop */
+@media (max-width: 1023px) and (min-width: 768px) {
+    body {
+        font-size: 15px; /* Slightly smaller font size for laptops */
+    }
+
+    header nav ul li a {
+        font-size: 1.1em;
+    }
+
+    footer ul li a {
+        font-size: 0.9em;
+    }
+
+    button#modeToggle {
+        font-size: 1.8em; /* Medium button for laptops */
+    }
+}
+
+/* Tablet */
+@media (max-width: 767px) and (min-width: 481px) {
+    body {
+        font-size: 14px; /* Even smaller font size for tablets */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Stack nav links vertically on tablet */
+    }
+
+    header nav ul li {
+        margin: 10px 0; /* Space between links */
+    }
+
+    button#modeToggle {
+        font-size: 1.6em; /* Smaller button for tablets */
+        top: 10px; /* Adjust the button's position slightly */
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px; /* Font size for mobile */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Stack nav links vertically on mobile */
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    footer ul li a {
+        font-size: 0.8em;
+    }
+
+    button#modeToggle {
+        font-size: 1.4em; /* Smaller button for mobile */
+        top: 10px; /* Adjust button position on mobile */
+    }
 }
