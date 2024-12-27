@@ -2,7 +2,7 @@
 const modeToggle = document.getElementById('modeToggle');
 const modeIcon = document.getElementById('modeIcon');
 
-// Check saved theme in localStorage
+// Check saved theme in localStorage and apply it
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark');
     modeIcon.classList.remove('fa-sun');

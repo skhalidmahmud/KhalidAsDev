@@ -27,10 +27,58 @@
         <i id="modeIcon" class="fas fa-sun"></i>
     </button>
 
-    <main>
-        <h1>Welcome to My Portfolio</h1>
-        <p>This is a brief intro about me.</p>
-    </main>
+    <main>   <!---------------------start main body-------------------------------------->
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Hi, I'm Khalid Mahmud</h1>
+        <p>IT Specialist | Web Developer</p>
+        <button class="btn">View My Work</button>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm an IT specialist with a passion for web development. I have a BSc in Computer Science and Engineering from the European University of Bangladesh. I enjoy solving problems and creating intuitive designs.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-container">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Project description goes here.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Project description goes here.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
+
+
+    </main>  <!---------------------end main body-------------------------------------->
 
     <footer>
         <p>&copy; 2024 Khalid Mahmud. All rights reserved.</p>
