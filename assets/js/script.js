@@ -29,3 +29,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Add event listener to the toggle button
 modeToggle.addEventListener('click', toggleMode);
+
+// Function to show or hide the under development warning
+const showDevWarning = () => {
+    const devWarning = document.getElementById('dev-warning');
+    devWarning.style.display = 'block'; // Shows the warning
+};
+
+// Function to hide the under development warning
+const hideDevWarning = () => {
+    const devWarning = document.getElementById('dev-warning');
+    devWarning.style.display = 'none'; // Hides the warning
+};
+
+// Example of showing the warning (you can trigger this based on conditions)
+showDevWarning();
+

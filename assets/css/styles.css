@@ -339,3 +339,27 @@ body.dark-mode #contact form button:hover {
         margin: 5px 0;
     }
 }
+
+
+/* Under Development Warning */
+#dev-warning {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    color: red;
+    font-weight: bold;
+    padding: 10px 20px;
+    z-index: 9999; /* Ensure it's on top of other elements */
+    animation: moveWarning 10s linear infinite;
+    white-space: nowrap;
+}
+
+/* Animation for moving the warning message from right to left */
+@keyframes moveWarning {
+    0% {
+        left: 10%;
+    }
+    100% {
+        left: -22%;
+    }
+}
