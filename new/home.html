@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            margin: 20px;
+        }
+        nav button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        nav button.active {
+            background: #ddd;
+        }
+        .content {
+            margin-top: 40px;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button id="homeBtn" class="active">Home</button>
+        <button id="aboutBtn">About</button>
+    </nav>
+    <div class="content" id="content">
+        <!-- Default Home Content -->
+        <img src="https://via.placeholder.com/150" alt="Profile Picture" style="border-radius: 50%;">
+        <h1>Katherine Oelsner</h1>
+        <p>Senior Software Engineer</p>
+        <div class="social-icons">
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+
+    <script>
+        const content = document.getElementById('content');
+        const homeBtn = document.getElementById('homeBtn');
+        const aboutBtn = document.getElementById('aboutBtn');
+
+        // Function to load Home content
+        function loadHome() {
+            content.innerHTML = `
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" style="border-radius: 50%;">
+                <h1>Katherine Oelsner</h1>
+                <p>Senior Software Engineer</p>
+                <div class="social-icons">
+                    <a href="#">GitHub</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            `;
+            homeBtn.classList.add('active');
+            aboutBtn.classList.remove('active');
+            history.pushState(null, '', '/');
+        }
+
+        // Function to load About content
+        function loadAbout() {
+            content.innerHTML = `
+                <h1>About Me</h1>
+                <p>Hello! I'm Katherine Oelsner, a senior software engineer with a passion for building clean and functional user interfaces.</p>
+            `;
+            aboutBtn.classList.add('active');
+            homeBtn.classList.remove('active');
+            history.pushState(null, '', '/about');
+        }
+
+        // Event listeners
+        homeBtn.addEventListener('click', loadHome);
+        aboutBtn.addEventListener('click', loadAbout);
+
+        // Handle browser navigation (Back/Forward buttons)
+        window.onpopstate = () => {
+            if (window.location.pathname === '/about') {
+                loadAbout();
+            } else {
+                loadHome();
+            }
+        };
+    </script>
+</body>
+</html>
