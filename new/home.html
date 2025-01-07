@@ -8,7 +8,9 @@
         :root {
             --bg-color: white;
             --text-color: black;
-            --font-size: 1em;
+            --button-bg: #f0e68c;
+            --button-hover: #ffd700;
+            --icon-color: black;
         }
 
         body {
@@ -17,7 +19,7 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-size: var(--font-size);
+            font-size: 1em;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,14 +41,19 @@
             padding: 0.5em 1em;
             margin: 0 0.5em;
             border: 1px solid #ccc;
-            background: white;
+            background: var(--button-bg);
             cursor: pointer;
             border-radius: 20px;
             font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        nav button:hover {
+            background: var(--button-hover);
         }
         nav button.active {
-            background: #ddd;
+            background: var(--button-hover);
         }
+
         .content {
             margin-top: 2em;
         }
@@ -56,23 +63,33 @@
         .social-icons a {
             margin: 0 0.5em;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.5em;
+            color: var(--icon-color);
+            transition: color 0.3s;
         }
+        .social-icons a:hover {
+            color: var(--button-hover);
+        }
+
         #toggleNightMode {
             position: fixed;
             top: 1em;
             right: 1em;
-            padding: 0.5em;
+            background: none;
             border: none;
-            border-radius: 20px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 1.5em;
+            color: var(--icon-color);
+            transition: color 0.3s;
+        }
+        #toggleNightMode:hover {
+            color: var(--button-hover);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <button id="toggleNightMode">Night Mode</button>
+        <button id="toggleNightMode">&#9728;</button>
         <nav>
             <button id="homeBtn" class="active">Home</button>
             <button id="aboutBtn">About</button>
@@ -80,12 +97,12 @@
         <div class="content" id="content">
             <!-- Default Home Content -->
             <img src="https://via.placeholder.com/150" alt="Profile Picture" style="border-radius: 50%;">
-            <h1 style="font-size: 2em;">Katherine Oelsner</h1>
-            <p style="font-size: 1.2em;">Senior Software Engineer</p>
+            <h1 style="font-size: 2em;">Khalid Mahmud</h1>
+            <p style="font-size: 1.2em;">IT Student and Web Enthusiast</p>
             <div class="social-icons">
-                <a href="#">GitHub</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
+                <a href="https://github.com/skhalidmahmud" target="_blank">&#xf09b;</a> <!-- GitHub -->
+                <a href="https://twitter.com/skhalidmahmud" target="_blank">&#xf099;</a> <!-- Twitter -->
+                <a href="https://linkedin.com/in/skhalidmahmud" target="_blank">&#xf0e1;</a> <!-- LinkedIn -->
             </div>
         </div>
     </div>
@@ -100,12 +117,12 @@
         function loadHome() {
             content.innerHTML = `
                 <img src="https://via.placeholder.com/150" alt="Profile Picture" style="border-radius: 50%;">
-                <h1 style="font-size: 2em;">Katherine Oelsner</h1>
-                <p style="font-size: 1.2em;">Senior Software Engineer</p>
+                <h1 style="font-size: 2em;">Khalid Mahmud</h1>
+                <p style="font-size: 1.2em;">IT Student and Web Enthusiast</p>
                 <div class="social-icons">
-                    <a href="#">GitHub</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">LinkedIn</a>
+                    <a href="https://github.com/skhalidmahmud" target="_blank">&#xf09b;</a>
+                    <a href="https://twitter.com/skhalidmahmud" target="_blank">&#xf099;</a>
+                    <a href="https://linkedin.com/in/skhalidmahmud" target="_blank">&#xf0e1;</a>
                 </div>
             `;
             homeBtn.classList.add('active');
@@ -117,7 +134,7 @@
         function loadAbout() {
             content.innerHTML = `
                 <h1 style="font-size: 2em;">About Me</h1>
-                <p style="font-size: 1.2em;">Hello! I'm Katherine Oelsner, a senior software engineer with a passion for building clean and functional user interfaces.</p>
+                <p style="font-size: 1.2em;">Hello! I'm Khalid Mahmud, a passionate IT student with a keen interest in web development and user interface design.</p>
             `;
             aboutBtn.classList.add('active');
             homeBtn.classList.remove('active');
@@ -142,7 +159,10 @@
             const isNightMode = document.body.style.getPropertyValue('--bg-color') === 'black';
             document.body.style.setProperty('--bg-color', isNightMode ? 'white' : 'black');
             document.body.style.setProperty('--text-color', isNightMode ? 'black' : 'white');
-            toggleNightMode.textContent = isNightMode ? 'Night Mode' : 'Day Mode';
+            document.body.style.setProperty('--button-bg', isNightMode ? '#f0e68c' : '#444');
+            document.body.style.setProperty('--button-hover', isNightMode ? '#ffd700' : '#666');
+            document.body.style.setProperty('--icon-color', isNightMode ? 'black' : 'white');
+            toggleNightMode.innerHTML = isNightMode ? '&#9728;' : '&#9790;';
         });
     </script>
 </body>
