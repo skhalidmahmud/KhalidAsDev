@@ -8,67 +8,85 @@
         :root {
             --bg-color: white;
             --text-color: black;
+            --font-size: 1em;
         }
 
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
+            font-size: var(--font-size);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         nav {
-            margin: 20px;
+            margin: 1em 0;
         }
         nav button {
-            padding: 10px 20px;
-            margin: 0 10px;
+            padding: 0.5em 1em;
+            margin: 0 0.5em;
             border: 1px solid #ccc;
             background: white;
             cursor: pointer;
             border-radius: 20px;
+            font-size: 1em;
         }
         nav button.active {
             background: #ddd;
         }
         .content {
-            margin-top: 40px;
+            margin-top: 2em;
         }
         .social-icons {
-            margin-top: 20px;
+            margin-top: 2em;
         }
         .social-icons a {
-            margin: 0 10px;
+            margin: 0 0.5em;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 1.2em;
         }
         #toggleNightMode {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
+            top: 1em;
+            right: 1em;
+            padding: 0.5em;
             border: none;
             border-radius: 20px;
             cursor: pointer;
+            font-size: 1em;
         }
     </style>
 </head>
 <body>
-    <button id="toggleNightMode">Night Mode</button>
-    <nav>
-        <button id="homeBtn" class="active">Home</button>
-        <button id="aboutBtn">About</button>
-    </nav>
-    <div class="content" id="content">
-        <!-- Default Home Content -->
-        <img src="https://via.placeholder.com/150" alt="Profile Picture" style="border-radius: 50%;">
-        <h1>Katherine Oelsner</h1>
-        <p>Senior Software Engineer</p>
-        <div class="social-icons">
-            <a href="#">GitHub</a>
-            <a href="#">Twitter</a>
-            <a href="#">LinkedIn</a>
+    <div class="container">
+        <button id="toggleNightMode">Night Mode</button>
+        <nav>
+            <button id="homeBtn" class="active">Home</button>
+            <button id="aboutBtn">About</button>
+        </nav>
+        <div class="content" id="content">
+            <!-- Default Home Content -->
+            <img src="https://via.placeholder.com/150" alt="Profile Picture" style="border-radius: 50%;">
+            <h1 style="font-size: 2em;">Katherine Oelsner</h1>
+            <p style="font-size: 1.2em;">Senior Software Engineer</p>
+            <div class="social-icons">
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
         </div>
     </div>
 
@@ -82,8 +100,8 @@
         function loadHome() {
             content.innerHTML = `
                 <img src="https://via.placeholder.com/150" alt="Profile Picture" style="border-radius: 50%;">
-                <h1>Katherine Oelsner</h1>
-                <p>Senior Software Engineer</p>
+                <h1 style="font-size: 2em;">Katherine Oelsner</h1>
+                <p style="font-size: 1.2em;">Senior Software Engineer</p>
                 <div class="social-icons">
                     <a href="#">GitHub</a>
                     <a href="#">Twitter</a>
@@ -98,8 +116,8 @@
         // Function to load About content
         function loadAbout() {
             content.innerHTML = `
-                <h1>About Me</h1>
-                <p>Hello! I'm Katherine Oelsner, a senior software engineer with a passion for building clean and functional user interfaces.</p>
+                <h1 style="font-size: 2em;">About Me</h1>
+                <p style="font-size: 1.2em;">Hello! I'm Katherine Oelsner, a senior software engineer with a passion for building clean and functional user interfaces.</p>
             `;
             aboutBtn.classList.add('active');
             homeBtn.classList.remove('active');
