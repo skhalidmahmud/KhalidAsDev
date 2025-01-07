@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Website</title>
     <style>
+        :root {
+            --bg-color: white;
+            --text-color: black;
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         nav {
             margin: 20px;
@@ -36,9 +43,19 @@
             text-decoration: none;
             font-size: 24px;
         }
+        #toggleNightMode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <button id="toggleNightMode">Night Mode</button>
     <nav>
         <button id="homeBtn" class="active">Home</button>
         <button id="aboutBtn">About</button>
@@ -59,6 +76,7 @@
         const content = document.getElementById('content');
         const homeBtn = document.getElementById('homeBtn');
         const aboutBtn = document.getElementById('aboutBtn');
+        const toggleNightMode = document.getElementById('toggleNightMode');
 
         // Function to load Home content
         function loadHome() {
@@ -100,6 +118,14 @@
                 loadHome();
             }
         };
+
+        // Night Mode Toggle
+        toggleNightMode.addEventListener('click', () => {
+            const isNightMode = document.body.style.getPropertyValue('--bg-color') === 'black';
+            document.body.style.setProperty('--bg-color', isNightMode ? 'white' : 'black');
+            document.body.style.setProperty('--text-color', isNightMode ? 'black' : 'white');
+            toggleNightMode.textContent = isNightMode ? 'Night Mode' : 'Day Mode';
+        });
     </script>
 </body>
 </html>
