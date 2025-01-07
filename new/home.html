@@ -8,8 +8,8 @@
         :root {
             --bg-color: white;
             --text-color: black;
-            --button-bg: #f0e68c;
-            --button-hover: #ffd700;
+            --button-border: #1e90ff;
+            --button-hover-border: #4682b4;
             --icon-color: black;
         }
 
@@ -40,18 +40,21 @@
         nav button {
             padding: 0.5em 1em;
             margin: 0 0.5em;
-            border: 1px solid #ccc;
-            background: var(--button-bg);
+            border: 2px solid var(--button-border);
+            background: none;
             cursor: pointer;
             border-radius: 20px;
             font-size: 1em;
-            transition: background-color 0.3s;
+            color: var(--text-color);
+            transition: border-color 0.3s, color 0.3s;
         }
         nav button:hover {
-            background: var(--button-hover);
+            border-color: var(--button-hover-border);
+            color: var(--button-hover-border);
         }
         nav button.active {
-            background: var(--button-hover);
+            border-color: var(--button-hover-border);
+            color: var(--button-hover-border);
         }
 
         .content {
@@ -63,12 +66,12 @@
         .social-icons a {
             margin: 0 0.5em;
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 2em;
             color: var(--icon-color);
             transition: color 0.3s;
         }
         .social-icons a:hover {
-            color: var(--button-hover);
+            color: var(--button-hover-border);
         }
 
         #toggleNightMode {
@@ -83,7 +86,7 @@
             transition: color 0.3s;
         }
         #toggleNightMode:hover {
-            color: var(--button-hover);
+            color: var(--button-hover-border);
         }
     </style>
 </head>
@@ -100,9 +103,15 @@
             <h1 style="font-size: 2em;">Khalid Mahmud</h1>
             <p style="font-size: 1.2em;">IT Student and Web Enthusiast</p>
             <div class="social-icons">
-                <a href="https://github.com/skhalidmahmud" target="_blank">&#xf09b;</a> <!-- GitHub -->
-                <a href="https://twitter.com/skhalidmahmud" target="_blank">&#xf099;</a> <!-- Twitter -->
-                <a href="https://linkedin.com/in/skhalidmahmud" target="_blank">&#xf0e1;</a> <!-- LinkedIn -->
+                <a href="https://github.com/skhalidmahmud" target="_blank" title="GitHub">
+                    <img src="https://via.placeholder.com/32?text=G" alt="GitHub Icon">
+                </a>
+                <a href="https://twitter.com/skhalidmahmud" target="_blank" title="Twitter">
+                    <img src="https://via.placeholder.com/32?text=T" alt="Twitter Icon">
+                </a>
+                <a href="https://linkedin.com/in/skhalidmahmud" target="_blank" title="LinkedIn">
+                    <img src="https://via.placeholder.com/32?text=L" alt="LinkedIn Icon">
+                </a>
             </div>
         </div>
     </div>
@@ -120,9 +129,15 @@
                 <h1 style="font-size: 2em;">Khalid Mahmud</h1>
                 <p style="font-size: 1.2em;">IT Student and Web Enthusiast</p>
                 <div class="social-icons">
-                    <a href="https://github.com/skhalidmahmud" target="_blank">&#xf09b;</a>
-                    <a href="https://twitter.com/skhalidmahmud" target="_blank">&#xf099;</a>
-                    <a href="https://linkedin.com/in/skhalidmahmud" target="_blank">&#xf0e1;</a>
+                    <a href="https://github.com/skhalidmahmud" target="_blank" title="GitHub">
+                        <img src="https://via.placeholder.com/32?text=G" alt="GitHub Icon">
+                    </a>
+                    <a href="https://twitter.com/skhalidmahmud" target="_blank" title="Twitter">
+                        <img src="https://via.placeholder.com/32?text=T" alt="Twitter Icon">
+                    </a>
+                    <a href="https://linkedin.com/in/skhalidmahmud" target="_blank" title="LinkedIn">
+                        <img src="https://via.placeholder.com/32?text=L" alt="LinkedIn Icon">
+                    </a>
                 </div>
             `;
             homeBtn.classList.add('active');
@@ -159,8 +174,8 @@
             const isNightMode = document.body.style.getPropertyValue('--bg-color') === 'black';
             document.body.style.setProperty('--bg-color', isNightMode ? 'white' : 'black');
             document.body.style.setProperty('--text-color', isNightMode ? 'black' : 'white');
-            document.body.style.setProperty('--button-bg', isNightMode ? '#f0e68c' : '#444');
-            document.body.style.setProperty('--button-hover', isNightMode ? '#ffd700' : '#666');
+            document.body.style.setProperty('--button-border', isNightMode ? '#1e90ff' : '#888');
+            document.body.style.setProperty('--button-hover-border', isNightMode ? '#4682b4' : '#aaa');
             document.body.style.setProperty('--icon-color', isNightMode ? 'black' : 'white');
             toggleNightMode.innerHTML = isNightMode ? '&#9728;' : '&#9790;';
         });
